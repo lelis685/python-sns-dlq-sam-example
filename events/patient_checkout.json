@@ -1,0 +1,19 @@
+[
+	{
+		"firstName":"Marco",
+		"middleName":"Antonio",
+		"lastName":"Thippireddy",
+		"ssn": "64654"
+	},
+	{
+		"firstName":"Sarath",
+		"middleName":"Reddy",
+		"lastName":"Thippireddy",
+		"ssn": "123456781"
+	},
+	{
+		"firstName":"Jose",
+		"middleName":"Souza",
+		"lastName":"Thippireddy",
+		"ssn": "7987987"
+	}
