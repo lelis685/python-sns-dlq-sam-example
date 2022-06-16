@@ -9,6 +9,8 @@ Globals:
       - x86_64
 
 Resources:
+  ClaimManagementQueue:
+    Type: AWS::SQS::Queue
   PatientCheckoutTopic:
     Type: AWS::SNS::Topic
   PatientCheckoutTopicDLQ:
@@ -66,3 +68,15 @@ Resources:
           Type: SNS
           Properties:
             Topic: !Ref PatientCheckoutTopicDLQ
+  ClaimManagementFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: patient-checkout/
+      Handler: claimmanagement.lambda_handler
+      Events:
+        SNSEvent:
+          Type: SQS
+          Properties:
+            Queue: !GetAtt ClaimManagementQueue.Arn
+            BatchSize: 2
+
